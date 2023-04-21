@@ -4,12 +4,13 @@
 extern char **environ;
 int main()
 {
-	int i;
 	char **evn = environ;
+	int i = 0;
 
-	for (i = 0; environ[i]; i++)
+	while (evn[i])
 	{
 		printf("%s\n", evn[i]);
-		return (0);
+		evn++;
 	}
+	return (0);
 }
