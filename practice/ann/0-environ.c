@@ -8,6 +8,7 @@ int main()
     for (i = 0; environ[i]; i++)
     {
         printf("%s\n", environ[i]);
-        return (0);
     }
+return (0);
+
 }
