@@ -3,7 +3,7 @@
 
 /**
  * main - execve example
- *
+ * Description: Doesn't return power to the process caller
  * Return: Always 0.
  */
 int main(void)
