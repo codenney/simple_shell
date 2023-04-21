@@ -12,7 +12,7 @@
 int main(void)
 {
 	size_t n = 10;
-	size_t bufsize;
+	int bufsize;
 	char *buf = NULL;
 
 	printf("$ ");
