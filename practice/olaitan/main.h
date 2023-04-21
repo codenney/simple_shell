@@ -8,5 +8,6 @@ extern char **environ;
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <string.h>
 
 #endif /* MAIN_H */
