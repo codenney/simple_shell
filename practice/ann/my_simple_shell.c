@@ -56,7 +56,7 @@ int main(int __attribute__((unused)) argc, char **argv)
         if (argv)
         {
             user_argu_copy = argv[0];
-            if (execve(user_argu_copy, argv, NULL) == -1)
+            if (execve(user_argu_copy, argv,environ) == -1)
             {
                 perror("Error: ");
             }
