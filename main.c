@@ -18,7 +18,6 @@ int main(int __attribute__((unused)) argc, char __attribute__((unused)) *argv[])
 		if (getline(&cmd, &n, stdin) == -1)
 		{
 			write(STDOUT_FILENO, "\n", 1);
-			return(-1);
 		}
 	}
 	free(cmd);
