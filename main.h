@@ -10,9 +10,6 @@ extern char **environ;
 #include <sys/wait.h>
 #include <string.h>
 #include <sys/stat.h>
-#include <signal.h>
-#include <limits.h>
 
 
-
-#endif
+#endif /*MAIN_H*/
