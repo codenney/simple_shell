@@ -6,9 +6,9 @@
  * @argv: An array of pointers to the arguments.
  * Return: 0 as success
  */
-int main(int argc, char *argv[])
+int main(int __attribute__((unused)) argc, char __attribute__((unused)) *argv[])
 {
-	int returnLine;
+	/*int returnLine;*/
 	char *cmd = NULL;
 	size_t n = 0;
 
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 		if (getline(&cmd, &n, stdin) == -1)
 		{
 			write(STDOUT_FILENO, "\n", 1);
-			free(cmd);
+			return(-1);
 		}
 	}
 	free(cmd);
