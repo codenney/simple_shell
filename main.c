@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 		if (getline(&cmd, &n, stdin) == -1)
 		{
 			write(STDOUT_FILENO, "\n", 1);
-			return(-1);
+			free(cmd);
 		}
 	}
 	free(cmd);
