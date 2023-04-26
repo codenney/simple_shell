@@ -15,8 +15,7 @@ int main(int argc, char *argv[])
 	while (1)
 	{
 		write(STDOUT_FILENO, "$ ", 2);
-		returnLine = getline(&cmd, &n, stdin);
-		if (returnLine == -1)
+		if (getline(&cmd, &n, stdin) == -1)
 		{
 			write(STDOUT_FILENO, "\n", 1);
 			free(cmd);
