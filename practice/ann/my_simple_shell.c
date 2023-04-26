@@ -67,7 +67,7 @@ int main(int __attribute__((unused)) argc, char **argv)
             {
                 perror("Error: ");
             }
-            exit(1);
+            exit(0);
         }
         else
         {
