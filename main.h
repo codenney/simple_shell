@@ -3,7 +3,7 @@
 
 extern char **environ;
 
-#define BUFSIZE 
+#define BUFSIZE
 #define TOKEN_BUFSIZE 128
 #define TOKEN_DELIM " \t\r\n\a"
 
