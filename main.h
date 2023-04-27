@@ -11,5 +11,6 @@ extern char **environ;
 #include <string.h>
 #include <sys/stat.h>
 
+void execmd(char **argv);
 
 #endif /*MAIN_H*/

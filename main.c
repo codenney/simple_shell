@@ -16,8 +16,6 @@ int main(int __attribute__((unused)) argc, char *argv[])
 	char *token;
 	int Addons_token = 0;
 	int i;
-	pid_t pid;
-	int status;
 	const char *delim = "\n";
 
 	while (1)
@@ -56,25 +54,7 @@ int main(int __attribute__((unused)) argc, char *argv[])
 		}
 		argv[i] = NULL;
 
-		pid = fork();
-		if (pid == -1)
-		{
-			perror("Error: ");
-			return (1);
-		}
-		else if ((argv) && (pid == 0))
-		{
-			actual_command = argv[0];
-			if (execve(actual_command, argv, environ) == -1)
-			{
-				perror("Error: ");
-			}
-			exit(0);
-		}
-		else
-		{
-			wait(&status);
-		}
+        execmd(argv);
 	}
 	free(cmd);
 	free(actual_command);
