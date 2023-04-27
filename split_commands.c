@@ -27,7 +27,7 @@ int split_commands(data_input *datash, char *input)
 	{
 		datash->input = list_l->line;
 		datash->args = split_line(datash->input);
-		loop = exec_line(datash);
+		loop = run(datash);
 		free(datash->args);
 
 		if (loop == 0)

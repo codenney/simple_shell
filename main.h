@@ -3,7 +3,9 @@
 
 extern char **environ;
 
-#define BUFSIZE 1024
+#define BUFSIZE 
+#define TOKEN_BUFSIZE 128
+#define TOKEN_DELIM " \t\r\n\a"
 
 #include <stdlib.h>
 #include <stddef.h>
@@ -18,6 +20,8 @@ extern char **environ;
 #include <fcntl.h>
 #include <dirent.h>
 #include <signal.h>
+#include <limits.h>
+#include <linux/limits.h>
 
 
 /**
@@ -81,6 +85,17 @@ typedef struct line_list_s
 	struct line_list_s *next;
 } line_list;
 
+/**
+ * struct builtin_s - Builtin struct for command args.
+ * @name: The name of the command builtin i.e cd, exit, env
+ * @f: data type pointer function.
+ */
+typedef struct builtin_s
+{
+	char *name;
+	int (*f)(data_input *datash);
+} builtin_t;
+
 void get_sigint(int sig);
 int len_num(int n);
 void prompt_loop(data_input *datum);
@@ -111,7 +126,46 @@ char *_strcpy(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 char *_strchr(char *s, char c);
 int _strspn(char *s, char *accept);
-void set_data(data_input *datash, char **argv);
+void free_rvar_list(r_var **head);
+r_var *add_rvar_node(r_var **head, int lvar, char *val, int lval);
+char *swap_char(char *input, int bool);
+void add_nodes(sep_list **head_s, line_list **head_l, char *input);
+void go_next(sep_list **list_s, line_list **list_l, data_input *datum);
+int split_commands(data_input *datum, char *input);
+char **split_line(char *input);
+sep_list *add_sep_node_end(sep_list **head, char sep);
+void free_sep_list(sep_list **head);
+line_list *add_line_node_end(line_list **head, char *line);
+void free_line_list(line_list **head);
+char *_strdup(const char *s);
+int _strlen(const char *s);
+int cmp_chars(char str[], const char *delim);
+char *_strtok(char str[], const char *delim);
+int _isdigit(const char *s);
+int run(data_input *datum);
+int (*get_builtin(char *cmd))(data_input *);
+int cmp_env_name(const char *nenv, const char *name);
+char *_getenv(const char *name, char **_environ);
+int _env(data_input *datum);
+char *copy_info(char *name, char *value);
+void set_env(char *name, char *value, data_input *datum);
+int _setenv(data_input *datum);
+int _unsetenv(data_input *datum);
+int cd_shell(data_input *datum);
+int exit_shell(data_input *datum);
+int get_help(data_input *datash);
+char **_reallocdp(char **ptr, unsigned int old_size, unsigned int new_size);
+void cd_dot(data_input *datash);
+void cd_to(data_input *datash);
+void cd_previous(data_input *datash);
+void cd_to_home(data_input *datash);
+void rev_string(char *s);
+int is_cdir(char *path, int *i);
+char *_which(char *cmd, char **_environ);
+int is_executable(data_input *datash);
+int check_error_cmd(char *dir, data_input *datash);
+int cmd_exec(data_input *datash);
+int get_error(data_input *datum, int eval);
 
 
 
