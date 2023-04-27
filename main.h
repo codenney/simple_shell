@@ -12,6 +12,7 @@ extern char **environ;
 #include <sys/stat.h>
 
 void execmd(char **argv);
+int shell_loop(char **argv);
 
 #endif /*MAIN_H*/
 
