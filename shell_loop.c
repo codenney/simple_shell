@@ -44,4 +44,5 @@ int shell_loop(char **argv)
     argv[i] = NULL;
     execmd(argv);
    }
+free(actual_command);
 }
