@@ -81,10 +81,14 @@ typedef struct line_list_s
 	struct line_list_s *next;
 } line_list;
 
+void get_sigint(int sig);
 int len_num(int n);
+void prompt_loop(data_input *datum);
 char *my_itoa(int n);
 char *_strdup(const char *s);
 char *read_line(int *readLine);
+void free_data(data_input *datum);
+void initial_data(data_input *datash, char **argv);
 char *without_comment(char *in);
 int check_syntax_error(data_input *datum, char *input);
 char *rep_var(char *input, data_input *datash);
@@ -107,7 +111,7 @@ char *_strcpy(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 char *_strchr(char *s, char c);
 int _strspn(char *s, char *accept);
-
+void set_data(data_input *datash, char **argv);
 
 
 
