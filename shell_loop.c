@@ -41,8 +41,8 @@ int shell_loop(char **argv)
         strcpy(argv[i], token);
         token = strtok(NULL, delim);
     }
-    argv[i] = NULL;
-    execmd(argv);
-   }
+   argv[i] = NULL;
+   execmd(argv);
+}
 free(actual_command);
 }
