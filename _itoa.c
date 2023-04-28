@@ -1,39 +1,38 @@
 #include "main.h"
 
 /**
- * my_itoa - function entry
+ * _itoa - function entry
  * Description: A function that converts int into a string
  * @n: number to convert
- * Return: string pointer 
+ * Return: string pointer
  */
 char *_itoa(int n)
 {
 	unsigned int num;
 	int length = _numlen(n);
-	char *buffer;
+	char *buf;
 
-	buffer = malloc(sizeof(char) * (length + 1));
-	if (buffer == 0)
+	buf = malloc(sizeof(char) * (length + 1));
+	if (buf == 0)
 		return (NULL);
 
-	*(buffer + length) = '\0';
+	*(buf + length) = '\0';
 
 	if (n < 0)
 	{
 		num = n * -1;
-		buffer[0] = '-';
+		buf[0] = '-';
 	}
 	else
-	{
 		num = n;
-	}
 
 	length--;
+
 	do {
-		*(buffer + length) = (num % 10) + '0';
+		*(buf + length) = (num % 10) + '0';
 		num = num / 10;
 		length--;
 	} while (num > 0);
 
-	return (buffer);
+	return (buf);
 }
