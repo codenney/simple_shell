@@ -10,6 +10,7 @@
 int main(int __attribute__((unused))argc, char *argv[])
 {
 	char *cmd = NULL;
+
 	shell_loop(argv);
 	free(cmd);
 	return (0);
